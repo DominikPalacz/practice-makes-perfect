@@ -10,8 +10,9 @@ function useData<T = unknown>(url: string, options?: RequestInit) {
 
 
 	useEffect(() => {
-		setError(null);
+		setData(null);
 		setLoading(true);
+		setError(null);
 
 		const controller = new AbortController();
 		const signal = controller.signal;
@@ -25,8 +26,8 @@ function useData<T = unknown>(url: string, options?: RequestInit) {
 				const result = await response.json();
 				if (!signal.aborted) setData(result);
 
-			} catch (err: any) {
-				if (err.name === 'AbortError') return;
+			} catch (err: unknown) {
+				if (err instanceof Error && err.name === 'AbortError') return;
 				if (!signal.aborted) setError(err instanceof Error ? err : new Error("Unknown error"))
 			} finally {
 				if (!signal.aborted) setLoading(false)

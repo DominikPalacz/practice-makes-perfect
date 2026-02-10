@@ -16,11 +16,6 @@ function App() {
   return (
     <>
       <div>
-        <pre>
-          loading: {JSON.stringify(loading, null, 2)} -
-          error: {JSON.stringify(error, null, 2)} -
-          data: {JSON.stringify(data, null, 2)}
-        </pre>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -40,6 +35,11 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <pre>
+        loading: {JSON.stringify(loading, null, 2)} -
+        error: {JSON.stringify(error, null, 2)} -
+        data: {JSON.stringify(data, null, 2)}
+      </pre>
     </>
   )
 }
