@@ -1,7 +1,9 @@
 import { ENDPOINTS } from './api/endpoints';
 import './App.css'
 import useData from './hooks/useData'
-import type { Users } from './types/user';
+import type { Users } from './types';
+
+
 
 function App() {
   const { data, loading, error } = useData<Users>(ENDPOINTS.USERS);
