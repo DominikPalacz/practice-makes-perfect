@@ -3,13 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import useData from './hooks/useData'
+import type { TodoList } from './types/todo'
 
 
 const URL = 'https://jsonplaceholder.typicode.com/todos'
 
 function App() {
   const [count, setCount] = useState(0);
-  const { data, loading, error } = useData(URL);
+  const { data, loading, error } = useData<TodoList>(URL);
 
   console.log({ data, loading, error })
 
@@ -38,8 +39,8 @@ function App() {
       <pre>
         loading: {JSON.stringify(loading, null, 2)} -
         error: {JSON.stringify(error, null, 2)} -
-        data: {JSON.stringify(data, null, 2)}
       </pre>
+      {data?.map((e) => ' ' + e.id)}
     </>
   )
 }

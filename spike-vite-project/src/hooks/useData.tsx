@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-
 function useData<T = unknown>(url: string, options?: RequestInit) {
 	const [data, setData] = useState<T | null>(null);
 	const [loading, setLoading] = useState(true);
